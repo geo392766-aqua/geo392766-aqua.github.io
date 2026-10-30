@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>창의 토목구조물 경연대회 아이디어 뱅크</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 네비게이션 스타일 */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 20px;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b6b;
+        }
+
+        /* 메인 콘텐츠 레이아웃 */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+
+        /* 아이디어 카드 그리드 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* 카드 내부 스타일 */
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        /* 구조물 이미지 영역 */
+        .card-image {
+            width: 100%;
+            height: 240px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        /* 임시 이미지 플레이스홀더 스타일 (실제 이미지 경로로 대체 가능) */
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 카드 텍스트 내용 */
+        .card-content {
+            padding: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e3faf2;
+            color: #20c997;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            height: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        /* 주요 특징 리스트 */
+        .features {
+            list-style: none;
+            border-top: 1px dashed #dee2e6;
+            padding-top: 15px;
+        }
+
+        .features li {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '•';
+            color: #ff6b6b;
+            font-weight: bold;
+            display: inline-block; 
+            width: 15px;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* 반응형 모바일 대응 */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <h1>Future Civil Infrastructure</h1>
+        <p>대학생 토목구조물 경연대회 창의 아이디어 갤러리</p>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav>
+        <a href="#ideas">공모전 아이디어</a>
+        <a href="#rules">심사 기준 안내</a>
+    </nav>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container" id="ideas">
+        <h2 class="section-title">출품 및 기획 아이디어</h2>
+        
+        <div class="grid">
+            
+            <!-- 아이디어 카드 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <!-- 실제 이미지가 있다면 아래 주석을 풀고 경로를 넣으세요 -->
+                    <!-- <img src="bridge.jpg" alt="자가 치유 교량"> -->
+                    🌉 구조물 사진 등록 위치 (자가치유 교량)
+                </div>
+                <div class="card-content">
+                    <span class="badge">구조 효율성</span>
+                    <h3>바이오 콘크리트 자가 치유 교량</h3>
+                    <p>박테리아와 특수 캡슐을 배합한 신소재를 적용하여, 콘크리트에 미세 균열이 발생했을 때 스스로 치유하는 친환경 장수명 교량 모델입니다.</p>
+                    <ul class="features">
+                        <li>재료: 바이오 스마트 콘크리트, 탄소섬유강화플라스틱(CFRP)</li>
+                        <li>핵심 타겟: 장기 유지보수 비용 60% 절감</li>
+                        <li>평가: 내구성 및 지속 가능성 부문 최고점</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 아이디어 카드 2 -->
+            <div class="card">
+                <div class="card-image">
+                    🏭 구조물 사진 등록 위치 (모듈러 방파제)
+                </div>
+                <div class="card-content">
+                    <span class="badge">해양/방재</span>
+                    <h3>파력 발전 융합형 모듈러 방파제</h3>
+                    <p>이상 기후로 인한 지진해일 및 태풍에 대비하는 방파제입니다. 블록 교체가 용이한 모듈러 공법에 파동 에너지를 전기로 변환하는 장치를 융합했습니다.</p>
+                    <ul class="features">
+                        <li>재료: 고강도 프리캐스트 콘크리트, 하이브리드 파력 터빈</li>
+                        <li>핵심 타겟: 해안가 저지대 재해 예방 및 자체 전력 수급</li>
+                        <li>평가: 시공성 및 기능 융합성 우수</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 아이디어 카드 3 -->
+            <div class="card">
+                <div class="card-image">
+                    🌿 구조물 사진 등록 위치 (입체 보행교)
+                </div>
+                <div class="card-content">
+                    <span class="badge">도시/디자인</span>
+                    <h3>키네틱 루프 (Kinetic Loop) 보행교</h3>
+                    <p>유동 인구와 바람의 흐름에 따라 상부 프레임이 유연하게 반응하는 키네틱 아트 구조를 적용하여, 도시의 미관과 보행 동선을 혁신하는 구조물입니다.</p>
+                    <ul class="features">
+                        <li>재료: 고장력 강재, 스마트 센서 모듈, 투명 태양광 패널</li>
+                        <li>핵심 타겟: 도심지 랜드마크 조성 및 보행자 안전 확보</li>
+                        <li>평가: 조형미 및 창의성 영역 우수</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 푸터 영역 -->
+    <footer>
+        <p>© 2026 토목구조물 경연대회 준비위원회. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #aaa;">본 페이지의 아이디어와 레이아웃은 공모전 연구 목적으로 제작되었습니다.</p>
+    </footer>
+
+</body>
+</html>
